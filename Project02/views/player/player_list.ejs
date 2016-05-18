@@ -1,0 +1,34 @@
+<% include ../partials/header.ejs %>
+<style>
+    #table {
+        padding-left: 203px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+</style>
+<div id="table">
+    <h2>Player Table:</h2>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/player/?player_id=<%= rs[i].player_id %>"> <%= rs[i].p_firstname %> <%= rs[i].p_lastname %></a></td>
+            <td><a href="/player/edit/?player_id=<%= rs[i].player_id %>">Edit</a></td>
+            <td><a href="/player/delete/?player_id=<%= rs[i].player_id %>">Delete</a></td>
+        </tr>
+        </tbody>
+        <% } %>
+    </table>
+    <% } else { %>
+    No Players are entered into the Player table in the database.
+    <% } %>
+</div>
+<% include ../partials/footer.ejs %>

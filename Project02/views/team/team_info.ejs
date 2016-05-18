@@ -1,0 +1,14 @@
+<% include ../partials/header.ejs %>
+
+<% if(rs.length > 0) { %>
+<b>Team Name:</b> <%= rs[0].name %><br/>
+<b>Arena Name:</b> <%= rs[0].arena_name %><br/>
+<b>City:</b> <%= rs[0].city %><br/>
+<b>State:</b> <%= rs[0].state %><br/>
+<b>Zip Code:</b> <%= rs[0].zip %><br/>
+
+<% } else { %>
+No team matched team id <%= team_id %>.
+<% } %>
+
+<% include ../partials/footer.ejs %>

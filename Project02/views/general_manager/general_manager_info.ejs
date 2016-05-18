@@ -1,0 +1,12 @@
+<% include ../partials/header.ejs %>
+
+<% if(rs.length > 0) { %>
+<b>Name:</b> <%= rs[0].firstname %> <%= rs[0].lastname %><br/>
+<b>Team Owned:</b> <%= rs[0].name %><br/>
+<b>Years Owned:</b> <%= rs[0].years_owned %><br/>
+
+<% } else { %>
+No gm matched gm id <%= gm_id %>.
+<% } %>
+
+<% include ../partials/footer.ejs %>

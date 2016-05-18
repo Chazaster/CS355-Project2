@@ -1,0 +1,50 @@
+<!DOCTYPE xhtml>
+<html>
+<head>
+    <title>Page Title</title>
+    <style>
+        #header {
+            background-color:chocolate;
+            color:white;
+            text-align:center;
+            padding:5px;
+            font-size: 15px;
+        }
+        #nav {
+            line-height: 30px;
+            background-color: lightblue;
+            height: 455px;
+            width: 195px;
+            float: left;
+            padding: 5px;
+        }
+    </style>
+    <% if (typeof js_includes !== 'undefined') { %>
+        <% for(var i=0; i < js_includes.length; i++) { %>
+            <script src="<%= js_includes[i] %>"></script>
+        <% }%>
+    <% }%>
+</head>
+<body>
+
+<div id = "header">
+    <h1>NHL Database</h1>
+</div>
+
+<div id = "nav">
+    ----------------------------------
+    <a href="/users/about">About this Database</a>
+    <br />
+    <a href = "/player/create">Player Sign Up</a>
+    <br />
+    ----------------------------------
+    <a href="/coach/all">View All Coaches</a>
+    <br />
+    <a href="/general_manager/all">View All General Managers</a>
+    <a href="/gm_player/gm_all"> <blockquote>• View All GM's Who Are Players</blockquote></a>
+    <a href="/player/all">View All Players</a>
+    <br />
+    <a href="/team/all">View All Teams</a>
+    <a href="/team_goals/team_goals_all"> <blockquote>• Find Teams With Most Goals</blockquote></a>
+    ----------------------------------
+</div>

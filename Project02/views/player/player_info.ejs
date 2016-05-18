@@ -1,0 +1,17 @@
+<% include ../partials/header.ejs %>
+
+<% if(rs.length > 0) { %>
+<b>Name:</b> <%= rs[0].p_firstname %> <%= rs[0].p_lastname %><br/>
+<b>Email:</b> <%= rs[0].email %><br/>
+<b>Games Played:</b> <%= rs[0].games_played %><br/>
+<b>Goals:</b> <%= rs[0].goals %><br/>
+<b>Assists:</b> <%= rs[0].assists %><br/>
+<b>Points:</b> <%= rs[0].points %><br/>
+<b>Penalty Minutes:</b> <%= rs[0].penalty_minutes %><br/>
+<b>Teams Played On:</b> <% for (var i=0; rs.length > i; i++) { %> <%= rs[i].name %> <% } %><br/>
+<b>Rating:</b> <%= rs[0].rating_id%> - <%= rs[0].rating_title %> <br/>
+<% } else { %>
+No player matched player id <%= player_id %>.
+<% } %>
+
+<% include ../partials/footer.ejs %>

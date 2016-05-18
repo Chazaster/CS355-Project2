@@ -1,0 +1,34 @@
+<% include ../partials/header.ejs %>
+<style>
+    #table {
+        padding-left: 203px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+</style>
+<div id="table">
+    <h2>General Manager Table:</h2>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/general_manager/?gm_id=<%= rs[i].gm_id %>"> <%= rs[i].firstname %> <%= rs[i].lastname %></a></td>
+            <td><a href="/generaL_manager/edit/?gm_id=<%= rs[i].gm_id %>">Edit</a></td>
+            <td><a href="/general_manager/delete/?gm_id=<%= rs[i].gm_id %>">Delete</a></td>
+        </tr>
+        </tbody>
+        <% } %>
+    </table>
+    <% } else { %>
+    No General Managers are entered into the General Manager table in the database.
+    <% } %>
+</div>
+<% include ../partials/footer.ejs %>

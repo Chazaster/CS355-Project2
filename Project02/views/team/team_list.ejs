@@ -1,0 +1,34 @@
+<% include ../partials/header.ejs %>
+<style>
+    #table {
+        padding-left: 203px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+</style>
+<div id="table">
+    <h2>Team Table:</h2>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Team Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/team/?team_id=<%= rs[i].team_id %>"> <%= rs[i].name %></a></td>
+            <td><a href="/team/edit/?team_id=<%= rs[i].team_id %>">Edit</a></td>
+            <td><a href="/team/delete/?team_id=<%= rs[i].team_id %>">Delete</a></td>
+        </tr>
+        </tbody>
+        <% } %>
+    </table>
+    <% } else { %>
+    No Teams are entered into the Team table in the database.
+    <% } %>
+</div>
+<% include ../partials/footer.ejs %>

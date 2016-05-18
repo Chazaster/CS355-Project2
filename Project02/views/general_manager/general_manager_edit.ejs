@@ -1,0 +1,24 @@
+<% include ../partials/header.ejs %>
+
+<h1>Edit General Manager</h1>
+<form method="POST" action="/general_manager/update_general_manager">
+    <input type="hidden" name="gm_id" value="<%= rs[0].gm_id %>" />
+    Firstname <input type="text" id="firstname" name="firstname" value="<%= rs[0].firstname%>"/>
+    <br />
+    Lastname <input type="text" id="lastname" name="lastname" value="<%= rs[0].lastname%>"/>
+    <br />
+    <!-- DROP DOWN MENUS -->
+    Owned Team
+    <select name="owned_team">
+        <% for( var i = 0; i < owned_team.length; i++) { %>
+        <option name="team_id" id="team_id" value="<%= owned_team[i].team_id %>"><%= owned_team[i].name %>
+            <% } %>
+    </select>
+    <br />
+    Years Owned <input type="text" id="years_owned" name="years_owned" value="<%= rs[0].years_owned%>"/>
+    <br/>
+    <br/>
+    <button id="editBtn">Edit</button>
+</form>
+
+<% include ../partials/footer.ejs %>

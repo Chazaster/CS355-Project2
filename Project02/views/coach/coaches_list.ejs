@@ -1,0 +1,34 @@
+<% include ../partials/header.ejs %>
+<style>
+    #table {
+        padding-left: 203px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+</style>
+<div id="table">
+    <h2>Coach Table:</h2>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/coach/?coach_id=<%= rs[i].coach_id %>"> <%= rs[i].firstname %> <%= rs[i].lastname %></a></td>
+            <td><a href="/coach/edit/?coach_id=<%= rs[i].coach_id %>">Edit</a></td>
+            <td><a href="/coach/delete/?coach_id=<%= rs[i].coach_id %>">Delete</a></td>
+        </tr>
+        </tbody>
+        <% } %>
+    </table>
+    <% } else { %>
+    No Coaches are entered into the Coach table in the database.
+    <% } %>
+</div>
+<% include ../partials/footer.ejs %>

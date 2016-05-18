@@ -1,0 +1,39 @@
+<% include ../partials/header.ejs %>
+
+<h1>Edit Player</h1>
+<form method="POST" action="/player/update_player">
+    <input type="hidden" name="player_id" value="<%= rs[0].player_id %>" />
+    Firstname <input type="text" id="p_firstname" name="p_firstname" value="<%= rs[0].p_firstname%>"/>
+    <br />
+    Lastname <input type="text" id="p_lastname" name="p_lastname" value="<%= rs[0].p_lastname%>"/>
+    <br />
+    Games Played <input type="text" id="games_played" name="games_played" value="<%= rs[0].games_played%>"/>
+    <br />
+    Goals <input type="text" id="goals" name="goals" value="<%= rs[0].goals%>"/>
+    <br />
+    Assists <input type="text" id="assits" name="assists" value="<%= rs[0].assists%>"/>
+    <br />
+    Points <input type="text" id="points" name="points" value="<%= rs[0].points%>"/>
+    <br />
+    Penalty Minutes <input type="text" id="penalty_minutes" name="penalty_minutes" value="<%= rs[0].penalty_minutes%>"/>
+    <br />
+    <!-- DROP DOWN MENUS -->
+    Add A Team The Player Played For
+    <select name="player_on_team">
+        <% for( var i = 0; i < player_on_team.length; i++) { %>
+        <option name="team_id" id="team_id" value="<%= player_on_team[i].team_id %>"><%= player_on_team[i].name %>
+            <% } %>
+    </select>
+    <br />
+    Player Rating
+    <select name="rating">
+        <% for( var i = 0; i < rating.length; i++) { %>
+        <option name="rating_id" id="rating_id" value="<%= rating[i].rating_id %>"><%= rating[i].rating_id %> - <%= rating[i].rating_title %>
+            <% } %>
+    </select>
+    <br />
+    <br/>
+    <button id="editBtn">Edit</button>
+</form>
+
+<% include ../partials/footer.ejs %>

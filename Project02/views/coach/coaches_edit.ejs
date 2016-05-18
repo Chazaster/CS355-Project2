@@ -1,0 +1,28 @@
+<% include ../partials/header.ejs %>
+
+<h1>Edit Coach</h1>
+<form method="POST" action="/coach/update_coach">
+    <input type="hidden" name="coach_id" value="<%= rs[0].coach_id %>" />
+    Firstname <input type="text" id="firstname" name="firstname" value="<%= rs[0].firstname%>"/>
+    <br />
+    Lastname <input type="text" id="lastname" name="lastname" value="<%= rs[0].lastname%>"/>
+    <br />
+    Games Coached <input type="text" id="games_coached" name="games_coached" value="<%= rs[0].games_coached%>"/>
+    <br />
+    Wins: <input type="text" id="wins" name="wins" value="<%= rs[0].wins%>"/>
+    <br />
+    Losses <input type="text" id="losses" name="losses" value="<%= rs[0].losses%>"/>
+    <br />
+    <!-- DROP DOWN MENUS -->
+    Change Team
+    <select name="coached_team">
+        <% for( var i = 0; i < coached_team.length; i++) { %>
+        <option name="team_id" id="team_id" value="<%= coached_team[i].team_id %>"><%= coached_team[i].name %>
+            <% } %>
+    </select>
+    <br />
+    <br/>
+    <button id="editBtn">Edit</button>
+</form>
+
+<% include ../partials/footer.ejs %>

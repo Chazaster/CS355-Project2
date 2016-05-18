@@ -1,0 +1,39 @@
+<% include ../partials/header.ejs %>
+<style>
+    #table {
+        padding-left: 203px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+</style>
+<div id="table">
+    <h2>GM And Player Table:</h2>
+    <p>This table uses a subquery</p>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Games Played</th>
+            <th>Goals</th>
+            <th>Assists</th>
+            <th>Points</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><%= rs[i].p_firstname %> <%= rs[i].p_lastname %></td>
+            <td><%= rs[i].games_played%></td>
+            <td><%= rs[i].goals%></td>
+            <td><%= rs[i].assists%></td>
+            <td><%= rs[i].points%></td>
+        </tr>
+        </tbody>
+        <% } %>
+    </table>
+    <% } else { %>
+    No General Managers/Players are entered into the General Manager/Player Subquery in the database.
+    <% } %>
+</div>
+<% include ../partials/footer.ejs %>

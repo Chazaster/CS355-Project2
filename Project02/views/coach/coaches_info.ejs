@@ -1,0 +1,14 @@
+<% include ../partials/header.ejs %>
+
+<% if(rs.length > 0) { %>
+<b>Name:</b> <%= rs[0].firstname %> <%= rs[0].lastname %><br/>
+<b>Team Coached:</b> <%= rs[0].name %><br/>
+<b>Wins:</b> <%= rs[0].wins %><br/>
+<b>Losses:</b> <%= rs[0].losses %><br/>
+<b>Games Coached:</b> <%= rs[0].games_coached %><br/>
+
+<% } else { %>
+No coach matched coach id <%= coach_id %>.
+<% } %>
+
+<% include ../partials/footer.ejs %>

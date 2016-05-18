@@ -1,0 +1,28 @@
+<% include partials/header.ejs %>
+<style>
+  #home {
+    text-align:center;
+    padding:5px;
+    font-size: 20px;
+  }
+</style>
+<div id="home">
+  <br/>
+  This is a database of the NHL.
+  Click the links in the navigation bar to check out the various aspects of the database and to learn more!
+  The About page, Player page, and Player Sign Up page are available to be viewed by everyone.
+  All Other pages can be viewed after logging in.
+  <br />
+  <br />
+  <div style="float:center;">
+    <% if(typeof p_firstname !== "undefined") { %>
+    Welcome, <%= p_firstname %>
+    <% } else { %>
+    <a href="/login">Login</a>
+    <% } %>
+  </div>
+  <br />
+  <% if(typeof p_firstname !== "undefined") { %><a href="/logout">Logout</a><% } %>
+  <br />
+</div>
+<% include partials/footer.ejs %>

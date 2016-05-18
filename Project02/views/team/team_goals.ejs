@@ -1,0 +1,11 @@
+<% include ../partials/header.ejs %>
+
+<h1>Find Team With the More Average Goals Than Your Inputted Number</h1>
+<form method="POST" action="/team_goals/find_team">
+    Number of Goals <input type="text" id="number" name="number" value="number"/>
+    <br />
+    <br/>
+    <button id="editBtn">Find!</button>
+</form>
+
+<% include ../partials/footer.ejs %>
